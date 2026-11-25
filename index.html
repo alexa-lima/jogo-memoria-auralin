@@ -68,9 +68,9 @@ h2.section{
   width:min(96vw, 640px);margin:0 auto 24px;padding:0 8px 24px;
 }
 #board.g4{grid-template-columns:repeat(4,1fr);width:min(96vw, 520px)}
-#board.g6{grid-template-columns:repeat(6,1fr);width:min(96vw, 640px)}
+#board.g6{grid-template-columns:repeat(5,1fr);width:min(96vw, 640px)}
 @media (min-width:720px){
-  #board.g6{width:min(92vw, 980px);gap:10px}
+  #board.g6{grid-template-columns:repeat(6,1fr);width:min(92vw, 980px);gap:10px}
   #board.g4{width:min(80vw, 720px);gap:10px}
 }
 .card{aspect-ratio:1/1;perspective:800px;cursor:pointer;position:relative;border:0;padding:0;background:transparent}
@@ -547,7 +547,7 @@ function startGame(){
   deck = buildDeck();
   const board = $("board");
   const n = deck.length;
-  board.className = (n <= 16) ? "g4" : "g6";
+  board.className = (n <= 24) ? "g4" : "g6";
   board.innerHTML = "";
   deck.forEach((c, i) => {
     const el = document.createElement("button");
